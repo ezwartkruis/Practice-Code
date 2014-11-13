@@ -1,23 +1,23 @@
-float x, y, sz, velX, velY, gravity;
+float x, y, sz, velX, velY, gravity;    //declate integers
 
 void setup(){
   size(800,600);
-  y = 15;
-  x = width/2;
-  sz = 30;
-  velX = 0;
-  velY = 0;
-  gravity = 1;
+  y = 15;                   //initialize vertical starting position of ball 
+  x = width/2;              //initialize horizontal starting position of ball 
+  sz = 30;                  //initialize size of ball
+  velX = 0;                 //initialize horizontal velociy
+  velY = 0;                 //initialize vertical velociy
+  gravity = 1;              //initialize gravity
 }
 
 void draw(){
   background(0);
-  ellipse(x,y,sz,sz);
-  velY += gravity;
-  y += velY;
-  if (y + sz/2 > height){
-   y = height -sz/2;
-   velY = -abs(velY)*.9;
+  ellipse(x,y,sz,sz);        //draw ball
+  velY += gravity;           //velocity in the y direction increases with gravity(y acceleration)
+  y += velY;                 //veertical position increases with velocity in the y direction
+  if (y + sz/2 > height){    //when ball hits bottom of screen...
+   y = height - sz/2;        //vertical position equals bottom of screen
+   velY = -abs(velY)*.9;     //...then make velocity negative and decrease
   }
   
 }
