@@ -5,7 +5,7 @@ void setup(){
   y = 15;                   //initialize vertical starting position of ball 
   x = width/2;              //initialize horizontal starting position of ball 
   sz = 30;                  //initialize size of ball
-  velX = 0;                 //initialize horizontal velociy
+  velX = 2;                 //initialize horizontal velociy
   velY = 0;                 //initialize vertical velociy
   gravity = 1;              //initialize gravity
 }
@@ -19,5 +19,11 @@ void draw(){
    y = height - sz/2;        //vertical position equals bottom of screen
    velY = -abs(velY)*.9;     //...then make velocity negative and decrease
   }
-  
+  x += velX;
+  if(x +sz/2 > width){
+   velX = -abs(velX); 
+  }
+  if(x -sz/2 < 0 ){
+   velX = abs(velX); 
+  }
 }
