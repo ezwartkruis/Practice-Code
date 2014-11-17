@@ -3,6 +3,7 @@ float sz = 40;
 
 void setup() {
   colorMode(HSB, 360, 100, 100, 100);
+  background(260, 50, 75);
   size (800, 600); 
   loc = new PVector(width/2, height/2);
   vel = new PVector (0,0);
