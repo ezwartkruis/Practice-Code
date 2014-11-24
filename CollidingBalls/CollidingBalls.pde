@@ -48,16 +48,16 @@ void draw() {
 
   //bounce ball
   if (loc.x + sz/2 > width || loc.x - sz/2 < 0) {
-    loc.x *= -1;
+    vel.x *= -1;
   }
   if (loc.y + sz/2 > height || loc.y - sz/2 < 0) {
-    loc.y *= -1;
+    vel.y *= -1;
   }
   if (loc2.x + sz2/2 > width || loc2.x - sz2/2 < 0) {
-    loc2.x *= -1;
+    vel2.x *= -1;
   }
   if (loc2.y + sz2/2 > height || loc2.y - sz2/2 < 0) {
-    loc2.y *= -1;
+    vel 2.y *= -1;
   }
 }
 
