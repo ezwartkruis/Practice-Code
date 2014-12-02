@@ -1,17 +1,20 @@
-GravityBall g;
+GravityBall [] g = new GravityBall [50];
 
 void setup() {
   size(800, 600);
-  g = new GravityBall();
+  for (int i = 0; i < g.length; i++) {
+    g[i] = new GravityBall();
+  }
 }
 
 void draw() {
   background(0);
-  g.display();
-  g.move();
-  g.bounce();
+  for (int i = 0; i < g.length; i++) {
+    g[i].display();
+    g[i].move();
+    g[i].bounce();
+  }
 }
-
 
 class GravityBall {
   PVector vel, acc, loc;
@@ -30,7 +33,7 @@ class GravityBall {
     vel.add(acc);
     loc.add(vel);
   }
-  void bounce(){
+  void bounce() {
     if (loc.y > height - sz/2) {
       loc.y = height - sz/2;
       vel.y = -abs(vel.y);
