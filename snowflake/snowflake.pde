@@ -3,10 +3,12 @@ PVector [] loc = new PVector [count];
 PVector [] vel = new PVector [count];
 PVector [] acc = new PVector [count];
 float [] sz = new float [count];
+PImage snowflake;
 
 void setup(){
   
   size(800, 600);
+  snowflake = loadImage("snowflake.png");
   for (int i = 0; i < count; i++) {
     sz[i] = random(5, 15);
     loc[i] = new PVector(random(width), random(-height, -sz[i]/2));
@@ -25,7 +27,7 @@ void draw() {
     loc[i].add(vel[i]);
     vel[i].limit(3);
 
-    ellipse(loc[i].x, loc[i].y, sz[i], sz[i]);
+    image(snowflake, loc[i].x, loc[i].y, sz[i], sz[i]);
 
     acc[i].x = random(-.1, .1);
 
