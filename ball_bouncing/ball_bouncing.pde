@@ -50,11 +50,17 @@ class Ball {
   }
   
   void bounce() {
-    if (loc.x + sz/2 > width || loc.x - sz/2 < 0) {
-      vel.x *= -1;
+    if (loc.x + sz/2 > width){
+      vel.x = -abs(vel.x);
+    }    
+    if(loc.x - sz/2 < 0) {
+      vel.x = abs(vel.x);
     }
-    if (loc.y + sz/2 > height || loc.y - sz/2 < 0) {
-      vel.y *= -1;
+    if (loc.y + sz/2 > height){
+    vel.y = -abs(vel.y);
+    }
+    if(loc.y - sz/2 < 0) {
+      vel.y = abs(vel.y);
     }
   }
   
