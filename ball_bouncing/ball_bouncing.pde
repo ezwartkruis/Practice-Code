@@ -1,10 +1,10 @@
-Ball [] b = new Ball [50];
+Ball [] b = new Ball [100];
 
 void setup() {
   size(800, 600);
   colorMode(HSB, 360, 100, 100, 100);
   for (int i = 0; i < b.length; i++) {
-    b[i] = new Ball();
+    b[i] = new Ball(random(10, 30), random(.5, 5));
   }
 }
 
@@ -14,7 +14,7 @@ void draw() {
     b[i].display();
     b[i].move();
     b[i].bounce();
-    for ( int j = 0; j < b.length; i++) {
+    for ( int j = 0; j < b.length; j++) {
       if (i!=j) {
         b[i].collideWith(b[j]);
       }
@@ -23,26 +23,32 @@ void draw() {
 }
 
 class Ball {
-  //declare variables
   PVector loc, vel, acc;
   float sz;
   float hue;
   float speed;
-  
-  Ball() {
+
+  Ball(float tempsz, float tempspeed) {
     //initialize variables
+    sz = tempsz;
     loc = new PVector(width/2, height/2);
     vel = PVector.random2D();
-    vel.mult(5);
+    speed = tempspeed;
+    vel.mult(speed);
     acc = new PVector(0, 0);
-    sz = random(10, 100);
     hue = random(360);
-    //might run code that should only run when object is first created
   }
+  
   void display() {
     fill(hue, 100, 100, 100);
     ellipse(loc.x, loc.y, sz, sz);
   }
+
+  void move() {
+    vel.add(acc);
+    loc.add(vel);
+  }
+  
   void bounce() {
     if (loc.x + sz/2 > width || loc.x - sz/2 < 0) {
       vel.x *= -1;
@@ -51,10 +57,13 @@ class Ball {
       vel.y *= -1;
     }
   }
-
-  void move() {
-    vel.add(acc);
-    loc.add(vel);
+  
+  void collideWith(Ball otherBall) {
+    if (loc.dist(otherBall.loc) < sz/2 + otherBall.sz/2) {
+      vel = PVector.sub(loc, otherBall.loc);
+      vel.normalize();
+      vel.setMag(speed);
+    }
   }
 }
 
