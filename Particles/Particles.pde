@@ -12,16 +12,18 @@ void draw() {
   background(255);                                            //set background color
   consumesEverything.display();                               //display blackhole
   spitsOutEverything.display();                               //display other blackhole
-  if(mousePressed){                                           //if the mouse is pressed...
-  particles.add(new Particle(random(10,30)));                 //...then add particles from the Particle Class
+  if (mousePressed) {                                           //if the mouse is pressed...
+    particles.add(new Particle(random(10, 30)));                 //...then add particles from the Particle Class
   }
   for (int i = particles.size () - 1; i >= 0; i--) {          //go through the arraylist
     Particle p = particles.get(i);                            //get particles out of the arraylist from the Particle Class
     p.display();                                              //display a particle reverencing the class
     p.move();                                                 //move a particle reverencing the class
     p.suckedIn(consumesEverything);
-    if(consumesEverything.consume(p)){
-  print("eaten");
-  }}
+    if (consumesEverything.consume(p)) {
+      //particles.teleport();
+      print("eaten");
+    }
+  }
 }
 

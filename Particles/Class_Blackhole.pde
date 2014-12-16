@@ -22,6 +22,5 @@ class BlackHole {
       return false;
     }
   }
-
 }
 
