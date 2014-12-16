@@ -6,7 +6,8 @@ void setup() {
 
 void draw() {
   background(0);
-  for (int i = 0; i < particles.size (); i++) {
+  particles.add(new Particle());
+  for (int i = particles.size() - 1; i >= 0; i--) {
     Particle p = particles.get(i);
     p.display();
     p.move();
@@ -16,12 +17,12 @@ void draw() {
 class Particle {
   PVector loc, vel, acc;
   Float sz;
-  
-  Particle()  {
+
+  Particle() {
     sz = random(10, 50);
-    loc = new PVector(width/2, height/2);
-    vel = new PVector(random(-3, -3), random(-3, 3));
-    acc = new PVector(.1, .1);
+    loc = new PVector(mouseX, mouseY);
+    vel = new PVector(random(-3, 3), random(-3, 3));
+    acc = new PVector(random(-.1, .1), random(-.1, .1));
   }
 
   void display() {
