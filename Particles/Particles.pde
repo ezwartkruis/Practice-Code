@@ -1,37 +1,25 @@
-ArrayList <Particle> particles = new ArrayList <Particle>();
+ArrayList <Particle> particles = new ArrayList <Particle>();  //declare new ArrayList from the Particle Class
+BlackHole consumesEverything;                                 //declare new blackhole
+BlackHole spitsOutEverything;                                 //declare other blackhole
 
 void setup() {
-  size(800, 600);
+  size(800, 600);                                             //set size of display
+  consumesEverything = new BlackHole(40);                     //initialize blackhole
+  spitsOutEverything = new BlackHole(20);                     //initialize other blackhole
 }
 
 void draw() {
-  background(0);
-  particles.add(new Particle());
-  for (int i = particles.size() - 1; i >= 0; i--) {
-    Particle p = particles.get(i);
-    p.display();
-    p.move();
+  background(255);                                            //set background color
+  if(mousePressed){                                           //if the mouse is pressed...
+  particles.add(new Particle(random(10,30)));                 //...then add particles from the Particle Class
   }
+  for (int i = particles.size () - 1; i >= 0; i--) {          //go through the arraylist
+    Particle p = particles.get(i);                            //get particles out of the arraylist from the Particle Class
+    p.display();                                              //display a particle reverencing the class
+    p.move();                                                 //move a particle reverencing the class
+   
 }
-
-class Particle {
-  PVector loc, vel, acc;
-  Float sz;
-
-  Particle() {
-    sz = random(10, 50);
-    loc = new PVector(mouseX, mouseY);
-    vel = new PVector(random(-3, 3), random(-3, 3));
-    acc = new PVector(random(-.1, .1), random(-.1, .1));
-  }
-
-  void display() {
-    ellipse(loc.x, loc.y, sz, sz);
-  }
-
-  void move() {
-    vel.add(acc);
-    loc. add(vel);
-  }
+  consumesEverything.display();                               //display blackhole
+  spitsOutEverything.display();                               //display other blackhole
 }
 
