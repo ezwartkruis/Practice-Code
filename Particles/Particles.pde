@@ -17,9 +17,10 @@ void draw() {
     Particle p = particles.get(i);                            //get particles out of the arraylist from the Particle Class
     p.display();                                              //display a particle reverencing the class
     p.move();                                                 //move a particle reverencing the class
-   
+    p.suckedIn(consumesEverything);
 }
   consumesEverything.display();                               //display blackhole
   spitsOutEverything.display();                               //display other blackhole
+ 
 }
 

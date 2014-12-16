@@ -10,7 +10,7 @@ class Particle {
   }
 
   void display() {
-    fill(255,0,0);                                            //set fill
+    fill(255, 0, 0);                                            //set fill
     ellipse(loc.x, loc.y, sz, sz);                            //draw ellipse
   }
 
@@ -18,6 +18,10 @@ class Particle {
     vel.add(acc);                                             //add acceleration to velocity
     loc.add(vel);                                             //add velocity to location
   }
+  
+  void suckedIn(BlackHole gone) {
+    acc = PVector.sub(gone.loc, loc);                        //subtract the location of the particles from the location of the blackhole, that equals the acceleration
+    acc.setMag(.05);                                         //set magnitude of acceleration
+  }
 }
-
 
