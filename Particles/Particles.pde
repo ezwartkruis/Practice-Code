@@ -10,6 +10,8 @@ void setup() {
 
 void draw() {
   background(255);                                            //set background color
+  consumesEverything.display();                               //display blackhole
+  spitsOutEverything.display();                               //display other blackhole
   if(mousePressed){                                           //if the mouse is pressed...
   particles.add(new Particle(random(10,30)));                 //...then add particles from the Particle Class
   }
@@ -18,9 +20,8 @@ void draw() {
     p.display();                                              //display a particle reverencing the class
     p.move();                                                 //move a particle reverencing the class
     p.suckedIn(consumesEverything);
-}
-  consumesEverything.display();                               //display blackhole
-  spitsOutEverything.display();                               //display other blackhole
- 
+    if(consumesEverything.consume(p)){
+  print("eaten");
+  }}
 }
 

@@ -15,15 +15,13 @@ class BlackHole {
 
 
 
-//  boolean consume (Particle food) {
-//    if (loc.dist(food.loc) < sz/2 + food.sz/2) {
-//      return true;
-//    } else {
-//      return false;
-//    }
-//  }
-//  void grow() {
-//    sz +=1;
-//  }
+  boolean consume (Particle food) {
+    if (loc.dist(food.loc) < sz/2 + food.sz/2) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }
 
