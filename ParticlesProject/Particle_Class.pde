@@ -1,19 +1,18 @@
 class Particle {
   PVector loc, vel, acc;                                      //declare location, velocity, and acceleration PVectors
-  Float sz;                                                   //declare size
-  //PImage present;
+  float sz;                                                   //declare size
+  PImage present;
 
   Particle(float tempsz) {
     sz = tempsz;                                          //initialize size
-    loc = new PVector(380, 200);                          //initialize location
+    loc = new PVector(360, 200);                          //initialize location
     vel = new PVector(random(-2, 0), random(1, 3));       //initialize velocity
     acc = new PVector(random(-.05, 0), .05);              //initialize acceleration
-    //present = loadImage("present.png");
+    present = loadImage("present2.png");
   }
 
   void display() {
-    //image(present, loc.x, loc.y, sz, sz);
-    ellipse(loc.x, loc.y, sz, sz);                       //draw ellipse
+    image(present, loc.x, loc.y, sz, sz);                //draw image
   }
 
   void move() {

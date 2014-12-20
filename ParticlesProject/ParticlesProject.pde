@@ -16,7 +16,7 @@ void draw() {
   image (santa, 350, 170, santa.width/4, santa.height );             //display image
 
   if (mousePressed) {                                           //if the mouse is pressed...
-    presents.add(new Particle(random(10, 30)));                 //...then add particles from the Particle Class
+    presents.add(new Particle(random(20, 50)));                 //...then add particles from the Particle Class
   }
   for (int i = presents.size () - 1; i >= 0; i--) {             //go through the arraylist
     Particle p = presents.get(i);                               //get particles out of the arraylist from the Particle Class
