@@ -12,7 +12,7 @@ void draw() {
   background(10, 20, 170);                                            //set background color
   image (reindeer, 620, 150, reindeer.width/4, reindeer.height/4);
   image (reindeer, 500, 170, reindeer.width/4, reindeer.height/4);
-  image(santa,350,170, santa.width/4, santa.height );
+  image (santa, 350, 170, santa.width/4, santa.height );
   if (mousePressed) {                                         //if the mouse is pressed...
     presents.add(new Particle(random(10, 30)));               //...then add particles from the Particle Class
   }

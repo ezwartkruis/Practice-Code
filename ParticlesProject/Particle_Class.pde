@@ -6,9 +6,9 @@ class Particle {
   Particle(float tempsz) {
     //present = loadImage("present.png");
     sz = tempsz;                                              //initialize size
-    loc = new PVector(mouseX, mouseY);                        //initialize location
+    loc = new PVector(380, 200);                        //initialize location
     vel = new PVector(random(-2,0), random(1,3));             //initialize velocity
-    acc = new PVector(random(-.05,0), random(.05));           //initialize acceleration
+    acc = new PVector(random(-.05,0), .05);           //initialize acceleration
   }
 
   void display() {
