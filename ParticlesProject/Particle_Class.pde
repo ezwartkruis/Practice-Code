@@ -4,28 +4,28 @@ class Particle {
   //PImage present;
 
   Particle(float tempsz) {
-    sz = tempsz;                                              //initialize size
-    loc = new PVector(380, 200);                              //initialize location
-    vel = new PVector(random(-2, 0), random(1, 3));             //initialize velocity
-    acc = new PVector(random(-.05, 0), .05);                   //initialize acceleration
+    sz = tempsz;                                          //initialize size
+    loc = new PVector(380, 200);                          //initialize location
+    vel = new PVector(random(-2, 0), random(1, 3));       //initialize velocity
+    acc = new PVector(random(-.05, 0), .05);              //initialize acceleration
     //present = loadImage("present.png");
   }
 
   void display() {
     //image(present, loc.x, loc.y, sz, sz);
-    ellipse(loc.x, loc.y, sz, sz);                            //draw ellipse
+    ellipse(loc.x, loc.y, sz, sz);                       //draw ellipse
   }
 
   void move() {
-    vel.add(acc);                                             //add acceleration to velocity
-    loc.add(vel);                                             //add velocity to location
+    vel.add(acc);                                        //add acceleration to velocity
+    loc.add(vel);                                        //add velocity to location
   }
 
   boolean fell() {
-    if (loc.y -sz/2 > height) {                        //if y location is greater than the screen...
-      return true;                                    //...and true then continue
-    } else {                                          //...or...
-      return false;                                   //...false then don't continue
+    if (loc.y -sz/2 > height) {                          //if y location is greater than the screen...
+      return true;                                       //...and true then continue
+    } else {                                             //...or...
+      return false;                                      //...false then don't continue
     }
   }
 }
