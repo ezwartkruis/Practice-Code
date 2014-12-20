@@ -14,6 +14,7 @@ void draw() {
   image (reindeer, 620, 150, reindeer.width/4, reindeer.height/4);   //display image
   image (reindeer, 500, 170, reindeer.width/4, reindeer.height/4);   //display image
   image (santa, 350, 170, santa.width/4, santa.height );             //display image
+  
   if (mousePressed) {                                           //if the mouse is pressed...
     presents.add(new Particle(random(10, 30)));                 //...then add particles from the Particle Class
   }
@@ -22,11 +23,15 @@ void draw() {
     p.display();                                                //display a particle reverencing the class
     p.move();                                                   //move a particle reverencing the class
   }
+  
   snowflakes.add(new Snowflake(random(5, 15)));                 //add snowflakes from the Snowflake Class
   for (int i = snowflakes.size () - 1; i >= 0; i--) {           //go through array list 
     Snowflake s = snowflakes.get(i);                            //get snowflakes out if the arraylist from the Snowflake Class
     s.display();                                                //display a snowflake
     s.move();                                                   //move snowflake
-  }
+   if(s.melted()){                                              //if snowlflake melted is true...
+    snowflakes.remove(i);                                       //...then remove snowflake
+   }
+}
 }
 

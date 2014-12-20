@@ -4,11 +4,11 @@ class Particle {
   //PImage present;
   
   Particle(float tempsz) {
-    //present = loadImage("present.png");
     sz = tempsz;                                              //initialize size
     loc = new PVector(380, 200);                              //initialize location
     vel = new PVector(random(-2,0), random(1,3));             //initialize velocity
     acc = new PVector(random(-.05,0), .05);                   //initialize acceleration
+    //present = loadImage("present.png");
   }
 
   void display() {
