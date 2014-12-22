@@ -7,6 +7,7 @@ void setup() {
   size(800, 600);
   reindeer = loadImage("flyingReindeers.png");                  //load picture into program
   santa = loadImage("santaSleigh.png");                         //load picture into program
+  noCursor();
 }
 
 void draw() {
@@ -32,8 +33,8 @@ void draw() {
     Snowflake s = snowflakes.get(i);                            //get snowflakes out if the arraylist from the Snowflake Class
     s.display();                                                //display a snowflake
     s.move();                                                   //move snowflake
-    if (s.melted()) {                                              //if snowlflake melted is true...
-      snowflakes.remove(i);                                       //...then remove snowflake
+    if (s.melted()) {                                           //if snowlflake melted is true...
+      snowflakes.remove(i);                                     //...then remove snowflake
     }
   }
 }
