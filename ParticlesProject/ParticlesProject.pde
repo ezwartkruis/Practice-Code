@@ -23,8 +23,8 @@ void draw() {
     Particle p = presents.get(i);                               //get particles out of the arraylist from the Particle Class
     p.display();                                                //display a particle reverencing the class
     p.move();                                                   //move a particle reverencing the class
-    if (p.fell()) {
-      presents.remove(i);
+    if (p.fell()) {                                             //if fell is true...
+      presents.remove(i);                                       //...then remove present
     }
   }
 
